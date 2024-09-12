@@ -9,6 +9,26 @@ body {
     color: #fff;
 }
 
+/* Default styles for all devices */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Styles for devices with a max width of 768px (tablets and smaller) */
+@media (max-width: 768px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+/* Styles for devices with a max width of 480px (smartphones) */
+@media (max-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+
 .chat-container {
     width: 400px;
     max-width: 100%;
