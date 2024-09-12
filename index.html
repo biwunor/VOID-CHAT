@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void Web Chat</title>
+    <script src="chat.js"></script>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>V01D Chat</h1>
+        </div>
+
+        <div class="chat-window" id="chat-window">
+            <!-- Bot responses will appear here -->
+        </div>
+
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="on">
+            <button id="emoji-button" title="Select Emoji"><i class="fas fa-smile"></i></button>
+            <div id="emoji-picker" class="emoji-hud" style="display:none;">
+                <!-- Emoji list -->
+                <span>😀</span><span>😁</span><span>😂</span><span>🤣</span><span>😃</span>
+                <span>😄</span><span>😅</span><span>😆</span><span>😉</span><span>😊</span>
+                <span>😍</span><span>🥰</span><span>😘</span><span>😗</span><span>😜</span>
+                <span>😎</span><span>🤩</span><span>🤔</span><span>😐</span><span>😑</span>
+                <span>😏</span><span>🤯</span><span>🤗</span><span>😇</span><span>🤑</span>
+                <span>🥳</span><span>😴</span><span>😵</span>
+            </div>
+            <button id="send-button">Send</button>
+        </div>
+
+        <nav class="menu-bar">
+            <select id="font-selector" title="Font Selector">
+                <option value="Arial">Arial</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+
+            <div id="controls">
+                <button id="voice-call-btn">Voice Call</button>
+                <button id="video-call-btn">Video Call</button>
+                <button id="voice-text-btn">Voice Text</button>
+                <button id="end-call-btn" style="display: none;">End Call</button>
+                <button id="record-call-btn" style="display: none;">Record Call</button>
+            </div>
+            
+            <div id="local-video-container" style="display: none;">
+                <video id="local-video" autoplay muted></video>
+            </div>
+            <div id="remote-video-container" style="display: none;">
+                <video id="remote-video" autoplay></video>
+            </div>
+            <audio id="local-audio" autoplay muted></audio>
+            <audio id="remote-audio" autoplay></audio>
+            
+            <div id="voice-text-recording" style="display: none;">
+                <p>Recording voice text...</p>
+                <button id="stop-voice-text-btn">Stop Recording</button>
+            </div>
+
+            <!-- Translation HUD -->
+            <div class="translation-hud">
+                <select id="language-selector" title="Language Selector">
+                    <option value="en" data-flag="🇺🇸">English</option>
+                    <option value="es" data-flag="🇪🇸">Spanish</option>
+                    <option value="fr" data-flag="🇫🇷">French</option>
+                    <option value="de" data-flag="🇩🇪">German</option>
+                    <!-- Add more languages as needed -->
+                </select>
+                <div class="flag-circle">
+                    <span id="selected-flag">🇺🇸</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
