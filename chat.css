@@ -16,16 +16,16 @@ body {
 }
 
 /* Styles for devices with a max width of 768px (tablets and smaller) */
-@media (max-width: 768px) {
+@media (max-width: 3000px) {
     body {
-        background-color: lightblue;
+        background-color: none;
     }
 }
 
 /* Styles for devices with a max width of 480px (smartphones) */
-@media (max-width: 480px) {
+@media (max-width: 10px) {
     body {
-        background-color: lightgreen;
+        background-color: none;
     }
 }
 
