@@ -282,7 +282,7 @@ body {
 }
 
 #local-video, #remote-video {
-    width: 50%;
+    width: 100%;
     height: auto;
     background-color: black;
 }
