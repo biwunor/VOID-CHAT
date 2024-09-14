@@ -30,7 +30,7 @@ body {
 }
 
 .chat-container {
-    width: 400px;
+    width: 600px;
     max-width: 100%;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
@@ -45,7 +45,7 @@ body {
 .chat-header {  
     position: relative; /* Position relative for absolute positioning of duplicates */  
     background: rgba(125, 47, 141, 0.2); /* Semi-transparent cyan background */  
-    padding: 15px; /* Increased padding for better spacing */  
+    padding: 25px; /* Increased padding for better spacing */  
     text-align: center; /* Center-align text */  
     font-size: 2rem; /* Increased font size */  
     font-style: italic; /* Italicized font style */
@@ -65,7 +65,7 @@ body {
     right: 0; /* Align to the right */  
     top: 0; /* Align to the top */  
     background: rgba(45, 87, 204, 0.2); /* Same background */  
-    padding: 15px; /* Same padding */  
+    padding: 25px; /* Same padding */  
     text-align: center; /* Center-align text */  
     font-size: 2rem; /* Same font size */  
     text-shadow: 0 0 15px rgba(163, 201, 28, 0.8); /* Same text shadow */  
