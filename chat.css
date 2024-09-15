@@ -324,103 +324,7 @@ body {
     background: rgba(255, 0, 0, 1); /* Brighter red on hover */
 }
 
-/* Responsive Media Queries */
-
-/* Extra Small Devices (smartphones, watches) */
-@media (max-width: 300px) and (max-height: 300px) {
-    .chat-container {
-        width: 100%;
-        max-height: 70vh; /* Reduce chat height to allow space for video */
-    }
-
-    .chat-header {
-        font-size: 1.25rem;
-        padding: 0.75rem;
-    }
-}
-
-/* Extra Small Devices (smartwatches) */
-@media (max-width: 300px) {
-    .chat-container {
-        width: 100%;
-        height: 100vh;
-        max-height: 100vh;
-        padding: 0;
-    }
-
-    .chat-header {
-        font-size: 1.1rem;
-        padding: 0.5rem;
-        height: auto;
-    }
-
-    .chat-window {
-        padding: 0.3rem;
-        max-height: 55vh;
-        overflow-y: auto;
-    }
-
-    #chat-input {
-        font-size: 0.9rem;
-        padding: 6px;
-    }
-
-    #emoji-button, #send-button {
-        font-size: 1.2rem;
-        padding: 6px;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 35vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 12px;
-        padding: 6px;
-    }
-}
-
-/* Devices with 640px Width and 360px Height */
-@media (max-width: 640px) and (max-height: 360px) {
-    .chat-container {
-        width: 100%;
-        max-height: 75vh;
-    }
-
-    .chat-header {
-        font-size: 1.2rem;
-        padding: 0.5rem;
-    }
-
-    .chat-window {
-        padding: 0.4rem;
-        max-height: 60vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 25vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-/* Devices with 240px Width and 320px Height */
+/* Extra Small Devices (smartwatches) - 240px Width and 320px Height */
 @media (max-width: 240px) and (max-height: 320px) {
     .chat-container {
         width: 100%;
@@ -465,200 +369,10 @@ body {
     }
 }
 
-/* Devices with 720px Width and 1280px Height */
-@media (max-width: 720px) and (max-height: 1280px) {
-    .chat-container {
-        width: 100%;
-        max-height: 80vh;
-    }
-
-    .chat-header {
-        font-size: 1.3rem;
-        padding: 0.5rem;
-    }
-
-    .chat-window {
-        padding: 0.5rem;
-        max-height: 65vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 16px;
-        padding: 8px;
-    }
-}
-
-/* Devices with 720px Width and 1600px Height */
-@media (max-width: 720px) and (max-height: 1600px) {
-    .chat-container {
-        width: 100%;
-        max-height: 85vh;
-    }
-
-    .chat-header {
-        font-size: 1.4rem;
-        padding: 0.6rem;
-    }
-
-    .chat-window {
-        padding: 0.6rem;
-        max-height: 70vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 40vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 18px;
-        padding: 10px;
-    }
-}
-
-/* Medium Devices (larger phones, tablets) */
-@media (min-width: 768px) and (max-width: 1200px) {
-    .chat-container {
-        width: 90%;
-        max-height: 75vh;
-    }
-
-    .chat-window {
-        max-height: 60vh;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 35vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Desktop and larger screens */
-@media (min-width: 1200px) {
-    .chat-container {
-        width: 90%;
-        max-height: 85vh;
-    }
-
-    .chat-window {
-        max-height: 70vh;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 40vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Devices with 360px Width and 640px Height */
+/* Small Devices (smartphones) - 360px Width and 640px Height */
 @media (max-width: 360px) and (max-height: 640px) {
     .chat-container {
         width: 100%;
-        height: 100vh; /* Full height for better usage of space */
-        max-height: 100vh;
-        padding: 0; /* Remove padding for full screen usage */
-    }
-
-    .chat-header {
-        font-size: 1.1rem; /* Adjust font size slightly */
-        padding: 0.5rem; /* Maintain padding for header */
-        height: auto;
-    }
-
-    .chat-window {
-        padding: 0.3rem; /* Reduce padding slightly */
-        max-height: 55vh; /* Adjust chat window height for video visibility */
-        overflow-y: auto; /* Enable scrolling if needed */
-    }
-
-    #chat-input {
-        font-size: 0.9rem; /* Adjust input font size */
-        padding: 6px; /* Slightly increase padding */
-    }
-
-    #emoji-button, #send-button {
-        font-size: 1.2rem; /* Adjust button sizes for larger touch areas */
-        padding: 6px;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 35vh; /* Adjust video container height for better visibility */
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 12px; /* Adjust control button text size */
-        padding: 6px;
-    }
-}
-
-/* Extra Small Devices (smartphones, watches) */
-@media (max-width: 300px) and (max-height: 300px) {
-    .chat-container {
-        width: 100%;
-        max-height: 70vh; /* Reduce chat height to allow space for video */
-    }
-
-    .chat-header {
-        font-size: 1rem;
-        padding: 0.5rem;
-        height: auto;
-    }
-
-    .chat-window {
-        padding: 0.3rem;
-        max-height: 50vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Devices with 360px Width and 640px Height */
-@media (max-width: 360px) and (max-height: 640px) {
-    .chat-container {
-        width: 100%;
-        height: 100vh;
         max-height: 100vh;
         padding: 0;
     }
@@ -675,16 +389,6 @@ body {
         overflow-y: auto;
     }
 
-    #chat-input {
-        font-size: 0.9rem;
-        padding: 6px;
-    }
-
-    #emoji-button, #send-button {
-        font-size: 1.2rem;
-        padding: 6px;
-    }
-
     #local-video-container, #remote-video-container {
         width: 100%;
         height: 35vh;
@@ -699,178 +403,14 @@ body {
         font-size: 12px;
         padding: 6px;
     }
-}
-
-/* Devices with 640px Width and 360px Height */
-@media (max-width: 640px) and (max-height: 360px) {
-    .chat-container {
-        width: 100%;
-        max-height: 75vh;
-    }
-
-    .chat-header {
-        font-size: 1.2rem;
-        padding: 0.5rem;
-    }
-
-    .chat-window {
-        padding: 0.4rem;
-        max-height: 60vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 25vh; /* Adjust height to fit landscape */
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-/* Devices with 240px Width and 320px Height */
-@media (max-width: 240px) and (max-height: 320px) {
-    .chat-container {
-        width: 100%;
-        max-height: 60vh;
-    }
-
-    .chat-header {
-        font-size: 1rem;
-        padding: 0.4rem;
-        height: auto;
-    }
-
-    .chat-window {
-        padding: 0.2rem;
-        max-height: 50vh;
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-
-    #controls button {
-        font-size: 10px;
-        padding: 4px;
-    }
 
     #emoji-button, #send-button {
-        font-size: 1rem;
-        padding: 4px;
-    }
-
-    #chat-input {
-        font-size: 0.8rem;
-        padding: 4px;
-    }
-}
-
-/* Medium Devices (larger phones, tablets) */
-@media (min-width: 768px) and (max-width: 1200px) {
-    .chat-container {
-        width: 90%;
-        max-height: 75vh;
-    }
-
-    .chat-window {
-        max-height: 60vh;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 35vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Desktop and larger screens */
-@media (min-width: 1200px) {
-    .chat-container {
-        width: 90%;
-        max-height: 85vh;
-    }
-
-    .chat-window {
-        max-height: 70vh;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 40vh;
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Devices with 2436px Width and 1125px Height */
-@media (max-width: 2436px) and (max-height: 1125px) {
-    .chat-container {
-        width: 100%;
-        height: 90vh; /* Slightly shorter than full screen to account for UI elements */
-        max-height: 90vh;
-        padding: 0.5rem;
-    }
-
-    .chat-header {
-        font-size: 1.4rem;
-        padding: 1rem; /* Adjust padding for larger screens */
-    }
-
-    .chat-window {
-        padding: 0.7rem;
-        max-height: 70vh; /* Ensure space for video or other content */
-        overflow-y: auto;
-    }
-
-    #local-video-container, #remote-video-container {
-        width: 100%;
-        height: 40vh; /* More space for video on larger screens */
-    }
-
-    #local-video, #remote-video {
-        width: 100%;
-        height: auto; /* Maintain video aspect ratio */
-    }
-
-    #chat-input {
         font-size: 1.2rem;
-        padding: 10px; /* Increase padding for input fields */
-    }
-
-    #emoji-button, #send-button {
-        font-size: 1.5rem;
-        padding: 10px;
-    }
-
-    #controls button {
-        font-size: 16px; /* Adjust control button sizes */
-        padding: 10px;
+        padding: 6px;
     }
 }
 
-/* Devices with 720px Width and 1520px Height */
+/* Small Devices (720px Width and 1520px Height) */
 @media (max-width: 720px) and (max-height: 1520px) {
     .chat-container {
         width: 100%;
@@ -911,6 +451,84 @@ body {
     #emoji-button, #send-button {
         font-size: 1.4rem;
         padding: 8px;
+    }
+}
+
+/* Medium Devices (tablets and larger smartphones) - 720px Width and 1280px Height */
+@media (max-width: 720px) and (max-height: 1280px) {
+    .chat-container {
+        width: 100%;
+        max-height: 80vh;
+    }
+
+    .chat-header {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+    }
+
+    .chat-window {
+        padding: 0.5rem;
+        max-height: 65vh;
+        overflow-y: auto;
+    }
+
+    #local-video-container, #remote-video-container {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #local-video, #remote-video {
+        width: 100%;
+        height: auto;
+    }
+
+    #controls button {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+/* Medium to Large Devices - 768px to 1200px Width */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .chat-container {
+        width: 90%;
+        max-height: 75vh;
+    }
+
+    .chat-window {
+        max-height: 60vh;
+    }
+
+    #local-video-container, #remote-video-container {
+        width: 100%;
+        height: 35vh;
+    }
+
+    #local-video, #remote-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Large Screens - Desktop and larger devices - 1200px and above */
+@media (min-width: 1200px) {
+    .chat-container {
+        width: 90%;
+        max-height: 85vh;
+    }
+
+    .chat-window {
+        max-height: 70vh;
+    }
+
+    #local-video-container, #remote-video-container {
+        width: 100%;
+        height: 40vh;
+    }
+
+    #local-video, #remote-video {
+        width: 100%;
+        height: auto;
     }
 }
 
