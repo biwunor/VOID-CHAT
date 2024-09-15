@@ -183,6 +183,7 @@ body {
     color: #eb550f;
     border: none;
     cursor: pointer;
+    position: fixed;
 }
 
 /* Language Selector - placed at the top right corner */
