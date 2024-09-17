@@ -269,3 +269,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
     endCallBtn.addEventListener('click', endCall);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const voiceCallBtn = document.getElementById('voice-call-btn');
+    const videoCallBtn = document.getElementById('video-call-btn');
+    const endCallBtn = document.getElementById('end-call-btn');
+    const localVideoContainer = document.getElementById('local-video-container');
+    const remoteVideoContainer = document.getElementById('remote-video-container');
+    const localVideo = document.getElementById('local-video');
+    const remoteVideo = document.getElementById('remote-video');
+
+    let localStream, peerConnection;
+
+    // Start a call (voice or video)
+    async function startCall(isVideo) {
+        localStream = await navigator.mediaDevices.getUserMedia({
+            video: isVideo,
+            audio: true
+        });
+        
+        // Show local video if it's a video call
+        if (isVideo) {
+            localVideo.srcObject = localStream;
+            localVideoContainer.style.display = 'block';
+        }
+        
+        peerConnection = new RTCPeerConnection();
+        localStream.getTracks().forEach(track => peerConnection.addTrack(track, localStream));
+        
+        peerConnection.ontrack = (event) => {
+            const remoteStream = event.streams[0];
+            remoteVideo.srcObject = remoteStream;
+            remoteVideoContainer.style.display = 'block';
+        };
+
+        const offer = await peerConnection.createOffer();
+        await peerConnection.setLocalDescription(offer);
+        signalingChannel.send(JSON.stringify({ type: 'offer', offer }));
+
+        // Toggle call buttons
+        voiceCallBtn.style.display = 'none';
+        videoCallBtn.style.display = 'none';
+        endCallBtn.style.display = 'inline';
+    }
+
+    // End the call and reset video containers
+    function endCall() {
+        if (peerConnection) {
+            peerConnection.close();
+            peerConnection = null;
+        }
+        if (localStream) {
+            localStream.getTracks().forEach(track => track.stop());
+        }
+        localVideoContainer.style.display = 'none';
+        remoteVideoContainer.style.display = 'none';
+
+        // Reset call control buttons
+        voiceCallBtn.style.display = 'inline';
+        videoCallBtn.style.display = 'inline';
+        endCallBtn.style.display = 'none';
+    }
+
+    // Event Listeners for Call Buttons
+    voiceCallBtn.addEventListener('click', () => startCall(false)); // Start voice call
+    videoCallBtn.addEventListener('click', () => startCall(true));  // Start video call
+    endCallBtn.addEventListener('click', endCall);
+});
+
+document.getElementById('end-call-button').addEventListener('click', endCall);
+
