@@ -51,6 +51,30 @@ body {
     justify-content: space-between;
 }
 
+
+.neon-frame {
+
+    border-radius: 10px; /* Curved corners for the frame */
+    display: inline-block;
+    background-color: rgba(131, 69, 115, 0.8); /* Slight transparency for the background */
+    box-shadow: 0 0 10px #0ff, /* Neon outer glow effect */
+                0 0 20px #0ff, 
+                0 0 30px #0ff, 
+                0 0 40px #00f; /* Layered blue glow for extra effect */
+    transition: transform 0.3s ease;
+}
+
+.neon-frame:hover {
+    transform: scale(1.05); /* Slight zoom on hover for futuristic effect */
+}
+
+.neon-frame img {
+    width: 111px;
+    height: auto;
+    border-radius: 15px; /* Rounded corners for the image */
+    border: 5px solid rgba(255, 255, 255, 0.2); /* Inner glow effect on the logo */
+}
+
 /* Chat Header */
 .chat-header {
     background: rgba(125, 47, 141, 0.2);
@@ -135,6 +159,11 @@ body {
     cursor: pointer;
 }
 
+#emoji-button:hover {
+    background: rgba(0, 255, 13, 0.6);
+    transform: scale(1.1);
+}
+
 #emoji-picker {
     display: none;
     position: absolute;
@@ -156,6 +185,11 @@ body {
     color: #fff;
     border-radius: 10px;
     transition: background 0.3s ease;
+}
+
+#send-button:hover {
+    background: rgba(0, 255, 13, 0.6);
+    transform: scale(1.1);
 }
 
 /* Menu Bar */
@@ -282,32 +316,287 @@ body {
 }
 
 #controls button:hover {
-    background: rgba(0, 255, 255, 0.6);
+    background: rgba(0, 255, 13, 0.6);
     transform: scale(1.1);
 }
 
 /* Media Queries */
-@media (max-width: 600px) {
-    .chat-container {
-        width: 95%;
-        height: 100vh;
-    }
-
+/* Normal Media Queries (100px to 3000px) */
+@media (min-width: 100px) and (max-width: 3000px) {
     #local-video, #remote-video {
-        height: 100%;
         width: 100%;
+        height: auto;
+    }
+
+    #local-video-container, #remote-video-container {
+        width: 100%;
+        max-width: 1200px;
+        height: 60%;
+        margin: auto;
+    }
+
+    /* Smaller devices */
+    @media (max-width: 600px) {
+        #local-video-container, #remote-video-container {
+            width: 90%;
+            height: 50%;
+        }
+    }
+
+    /* Medium devices */
+    @media (min-width: 601px) and (max-width: 1000px) {
+        #local-video-container, #remote-video-container {
+            width: 80%;
+            height: 55%;
+        }
+    }
+
+    /* Larger devices */
+    @media (min-width: 1001px) {
+        #local-video-container, #remote-video-container {
+            width: 70%;
+            height: 60%;
+        }
     }
 }
 
-@media (min-width: 600px) and (max-width: 1000px) {
-    .chat-container {
-        width: 90%;
+/* Heights from 100px to 3000px */
+@media (min-height: 100px) and (max-height: 3000px) {
+    #local-video, #remote-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Smaller heights */
+    @media (max-height: 600px) {
+        #local-video-container, #remote-video-container {
+            height: 40%;
+        }
+    }
+
+    /* Medium heights */
+    @media (min-height: 601px) and (max-height: 1200px) {
+        #local-video-container, #remote-video-container {
+            height: 50%;
+        }
+    }
+
+    /* Larger heights */
+    @media (min-height: 1201px) {
+        #local-video-container, #remote-video-container {
+            height: 60%;
+        }
     }
 }
 
-@media (max-width: 768px) {
-    .chat-message {
-        font-size: 1.2rem;
+/* Reverse Media Queries */
+/* General Button and Container Styles */
+button, .container {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Widths from 100px to 3000px */
+@media (min-width: 100px) and (max-width: 3000px) {
+    /* Button styles */
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        width: auto;
+    }
+
+    /* Larger buttons on wider screens */
+    @media (min-width: 1000px) {
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+    }
+
+    /* Smaller buttons for smaller screens */
+    @media (max-width: 600px) {
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+
+    /* Container styles */
+    .container {
+        width: 100%;
+        padding: 20px;
+        margin: 10px auto;
+        box-sizing: border-box;
+    }
+
+    /* Adjust container widths */
+    @media (min-width: 1000px) {
+        .container {
+            max-width: 1200px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    /* Adjust container heights */
+    @media (min-height: 100px) and (max-height: 3000px) {
+        .container {
+            height: auto;
+        }
+
+        @media (max-height: 600px) {
+            .container {
+                height: 50%;
+            }
+        }
+
+        @media (min-height: 1201px) {
+            .container {
+                height: 80%;
+            }
+        }
+    }
+}
+
+/* Reverse Media Queries (3000px to 100px) */
+/* Widths from 3000px to 100px */
+@media (max-width: 3000px) and (min-width: 100px) {
+    /* Button styles */
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        width: auto;
+    }
+
+    /* Larger buttons for larger screens */
+    @media (min-width: 2000px) {
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+    }
+
+    /* Smaller buttons for smaller screens */
+    @media (max-width: 999px) {
+        button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+
+    /* Container styles */
+    .container {
+        width: 100%;
+        padding: 20px;
+        margin: 10px auto;
+        box-sizing: border-box;
+    }
+
+    /* Adjust container widths */
+    @media (min-width: 2000px) {
+        .container {
+            max-width: 1200px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .container {
+            width: 90%;
+        }
+    }
+
+    /* Adjust container heights */
+    @media (max-height: 3000px) and (min-height: 100px) {
+        .container {
+            height: auto;
+        }
+
+        @media (min-height: 1500px) {
+            .container {
+                height: 70%;
+            }
+        }
+
+        @media (max-height: 999px) {
+            .container {
+                height: 50%;
+            }
+        }
+    }
+}
+
+/* Special media query for JioPhone 2 */
+@media only screen 
+  and (min-device-width: 240px) 
+  and (max-device-width: 240px) 
+  and (min-device-height: 320px) 
+  and (max-device-height: 320px) 
+  and (orientation: portrait) {
+
+    /* Button styling for JioPhone 2 */
+    button {
+        padding: 0.1px 0.1px;
+        font-size: 6px;
+        border-radius: 3px;
+        width: 100%; /* Full width to ensure it fits */
+        margin: 0.1px 0;
+    }
+
+    /* Container styling for JioPhone 2 */
+    .container {
+        width: 100%; /* Full width */
+        padding: 0.1px;
+        margin: 0.1;
+        box-sizing: border-box;
+    }
+
+    /* Video element styling */
+    video {
+        width: 100%; /* Full width to ensure it fits the small screen */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 200px; /* Limit the height for a small screen */
+    }
+
+    /* Voice call element styling */
+    .voice-call {
+        width: 100%; /* Full width for small screen */
+        padding: 0.1px; 
+        font-size: 10px; /* Smaller font for small screen */
+        border-radius: 3px;
+    }
+
+    /* Voice text/chat area */
+    .voice-text {
+        width: 100%; /* Full width to fit screen */
+        height: 50px; /* Restrict height to maintain space */
+        font-size: 10px; /* Small font for better fit */
+        padding: 0.1px;
+    }
+
+    /* Font selector dropdown */
+    .font-selector {
+        width: 100%; /* Full width */
+        font-size: 8px; /* Small font for dropdown */
+        padding: 0.1px;
+        border-radius: 2px;
+    }
+
+    /* Additional adjustments */
+    body {
+        font-size: 12px; /* Reduced font size for readability */
+        line-height: 1.2;
+    }
+
+    /* Smaller margins for better fit */
+    .container {
+        margin: 0;
+        padding: 0.1px;
     }
 }
 
@@ -324,7 +613,7 @@ body {
 #remote-video-container {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    left: 10px;
     width: 150px;
     height: 100px;
     border: 2px solid rgba(0, 255, 255, 0.6);
@@ -347,29 +636,40 @@ body {
 
 .stylish-end-call-btn {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #ff5757, #ff1e1e);
-    border: none;
+    left: 50%;
+    bottom: -60px; /* Positioned below the video container */
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent effect */
+    border: 2px solid rgba(255, 0, 0, 0.8); /* Red futuristic border */
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.6);
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: all 0.4s ease;
     z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    /* Fallback for browsers that don't support backdrop-filter */
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent dark background */
+}
+
+.swipe-arrow {
+    margin-left: 10px;
+    font-size: 16px;
+    transition: transform 0.4s ease;
+    color: rgba(255, 0, 0, 0.8); /* Futuristic red arrow */
+}
+
+.stylish-end-call-btn:hover .swipe-arrow {
+    transform: translateX(8px); /* Swipe effect on hover */
 }
 
 .stylish-end-call-btn:hover {
-    transform: scale(1.1);
-    background: linear-gradient(135deg, #ff1e1e, #ff5757);
+    background: rgba(255, 0, 0, 0.5); /* Changes background on hover */
+    box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.8);
 }
-
-.stylish-end-call-btn:active {
-    transform: scale(0.95);
-}
-
-
-

@@ -12,8 +12,10 @@
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <!-- Add the VOID logo here -->
-            <img src="VOID.jpg" alt="VOID" style="width: 111px; height: auto;">
+            <!-- VOID Logo with a thick, curvy futuristic neon frame -->
+            <div class="neon-frame">
+                <img src="VOID.jpg" alt="VOID Logo">
+            </div>
         </div>
 
         <div class="chat-window" id="chat-window">
@@ -51,28 +53,27 @@
                 <button id="end-call-btn" style="display: none;">End Call</button>
                 <button id="record-call-btn" style="display: none;">Record Call</button>
             </div>
-            
+
+            <!-- Video containers -->
             <div id="local-video-container" style="display: none;">
                 <video id="local-video" autoplay muted></video>
             </div>
             <div id="remote-video-container" style="display: none;">
                 <video id="remote-video" autoplay></video>
             </div>
+
             <audio id="local-audio" autoplay muted></audio>
             <audio id="remote-audio" autoplay></audio>
-            
+
             <div id="voice-text-recording" style="display: none;">
                 <p>Recording voice text...</p>
                 <button id="stop-voice-text-btn">Stop Recording</button>
             </div>
-            
-            <div id="local-video-container" style="display:none;">
-                <video id="local-video" autoplay muted></video>
-            </div>
-            
-            <div id="remote-video-container" style="display:none;">
-                <video id="remote-video" autoplay></video>
-            </div>          
+
+            <button id="end-call-btn" class="stylish-end-call-btn" style="display: none;">
+                End Call
+                <i class="fas fa-arrow-right swipe-arrow"></i>
+            </button>
 
             <!-- Translation HUD -->
             <div class="translation-hud">

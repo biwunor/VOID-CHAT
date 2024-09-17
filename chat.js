@@ -1,3 +1,4 @@
+//Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     const emojiButton = document.getElementById('emoji-button');
     const emojiPicker = document.getElementById('emoji-picker'); // Fixed: moved declaration to correct position
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Start a call (voice or video)
     async function startCall(isVideo) {
         localStream = await navigator.mediaDevices.getUserMedia({
             video: isVideo,
@@ -103,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (localStream) {
             localStream.getTracks().forEach(track => track.stop());
         }
+
+        // Toggle call buttons
         localVideoContainer.style.display = 'none';
         remoteVideoContainer.style.display = 'none';
         voiceCallBtn.style.display = 'inline';
@@ -267,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
         recordCallBtn.style.display = 'inline';
     });
 
+    // End the call and reset video containers
     endCallBtn.addEventListener('click', endCall);
 });
 
@@ -313,6 +318,14 @@ document.addEventListener('DOMContentLoaded', () => {
         endCallBtn.style.display = 'inline';
     }
 
+     // Swipe to end call
+     endCallBtn.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        if (touch.clientX < window.innerWidth / 2) {
+            endCall();
+        }
+    });
+
     // End the call and reset video containers
     function endCall() {
         if (peerConnection) {
@@ -338,4 +351,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('end-call-button').addEventListener('click', endCall);
-
