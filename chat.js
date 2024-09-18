@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "I'm here to chat, ask me anything!",
         "What’s your favorite sci-fi movie? Mine is 'The Matrix'!",
         "If you need help, just type your question.",
-        "Knock knock. Who’s there? ChatGPT! 😄",
+        "Knock knock. Who’s there? VIOD! 😄",
         "Looking for something specific? Let me know!",
         "Fun fact: The first email was sent by Ray Tomlinson to himself in 1971.",
         "Need some motivation? You're doing awesome! Keep going!",
