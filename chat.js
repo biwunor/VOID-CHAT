@@ -350,4 +350,92 @@ document.addEventListener('DOMContentLoaded', () => {
     endCallBtn.addEventListener('click', endCall);
 });
 
-document.getElementById('end-call-button').addEventListener('click', endCall);
+const endCallBtn = document.getElementById('end-call-btn');
+let startX = 0;
+let currentX = 0;
+let isSwiping = false;
+
+endCallBtn.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;  // Store the initial touch position
+    isSwiping = true;
+});
+
+endCallBtn.addEventListener('touchmove', (e) => {
+    if (!isSwiping) return;
+    
+    currentX = e.touches[0].clientX;
+    const distance = currentX - startX;
+
+    if (distance > 50) {  // Swiped right beyond 50px
+        endCallBtn.classList.add('swiped');  // Add swiped effect
+    }
+});
+
+endCallBtn.addEventListener('touchend', () => {
+    if (!isSwiping) return;
+
+    if (currentX - startX > 50) {
+        endCall();  // Trigger end call functionality
+    } else {
+        endCallBtn.classList.remove('swiped');  // Reset swipe effect if not swiped far enough
+    }
+
+    // Reset swipe state
+    isSwiping = false;
+    startX = 0;
+    currentX = 0;
+});
+
+function endCall() {
+    console.log('Call Ended');
+    // Add your call ending logic here
+    endCallBtn.style.display = 'none';  // Hide the button after the call ends
+    // Additional end call logic, like stopping media streams or notifications
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Delay before starting fade-out animation (e.g., 5 seconds)
+    setTimeout(() => {
+     document.querySelector('.futuristic-footer').classList.add('fade');
+    }, 20000); // 20000 milliseconds = 20 seconds
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('.futuristic-footer');
+    const cancelButton = document.getElementById('cancel-footer'); // Add this button to your HTML
+
+    let footerVisible = false;
+
+    function showFooter() {
+        if (!localStorage.getItem('footerHidden')) {
+            footer.classList.add('fade');
+            footerVisible = true;
+            setTimeout(hideFooter, 60000); // Hide the footer after 1 minute
+        }
+    }
+
+    function hideFooter() {
+        footer.classList.remove('fade');
+        footerVisible = false;
+    }
+
+    function handleFooterVisibility() {
+        if (!localStorage.getItem('footerHidden')) {
+            showFooter();
+            setInterval(() => {
+                if (!footerVisible && !localStorage.getItem('footerHidden')) {
+                    showFooter();
+                }
+            }, 30000); // Check every 30 seconds
+        }
+    }
+
+    cancelButton.addEventListener('click', () => {
+        localStorage.setItem('footerHidden', 'true');
+        footer.classList.remove('fade');
+    });
+
+    // Initial delay before showing the footer
+    setTimeout(handleFooterVisibility, 30000); // Show after 30 seconds
+});
+    

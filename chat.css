@@ -600,6 +600,178 @@ button, .container {
     }
 }
 
+/* General media query for all mobile phones (smartphones) */
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 768px) 
+  and (orientation: portrait) {
+
+    /* Styles for portrait orientation on all mobile devices */
+    .container {
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    video, .voice-call, .voice-text {
+        width: 100%;
+        height: auto;
+        font-size: 12px;
+    }
+
+    /* Responsive font selector for all mobile devices */
+    .font-selector {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    /* Other mobile adjustments */
+    body {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+}
+
+/* Landscape orientation on all mobile devices */
+@media only screen 
+  and (min-width: 320px) 
+  and (max-width: 768px) 
+  and (orientation: landscape) {
+
+    .container {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    button {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    video, .voice-call, .voice-text {
+        width: 100%;
+        height: auto;
+        font-size: 10px;
+    }
+
+    .font-selector {
+        width: 100%;
+        padding: 5px;
+        font-size: 10px;
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
+/* Extra-wide coverage for all mobile devices */
+@media only screen 
+  and (min-width: 240px) 
+  and (max-width: 900px) 
+  and (orientation: portrait), 
+  only screen 
+  and (min-width: 240px) 
+  and (max-width: 900px) 
+  and (orientation: landscape) {
+
+    /* Adjustments for smaller and larger mobile screens */
+    .container, video, .voice-call, .voice-text {
+        width: 100%;
+        padding: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .font-selector {
+        width: 100%;
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Media Queries for mobile responsiveness */
+
+/* Small devices (mobile phones, 320px and up) */
+@media only screen and (max-width: 600px) {
+    .chat-container {
+        width: 100%;
+    }
+
+    .chat-input-container input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .chat-input-container button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .emoji-hud {
+        bottom: 100px; /* Adjust emoji picker position for smaller screens */
+    }
+
+    .menu-bar {
+        flex-direction: column;
+    }
+
+    #controls {
+        display: flex;
+        flex-direction:row;
+        align-items: center;
+    }
+
+    .menu-bar select, .menu-bar button {
+        margin: 5px 0;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .chat-container {
+        max-width: 80%;
+    }
+
+    .menu-bar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .emoji-hud {
+        bottom: 70px;
+    }
+}
+
+/* Large devices (desktops and larger tablets) */
+@media only screen and (min-width: 768px) {
+    .chat-container {
+        max-width: 60%;
+    }
+
+    .emoji-hud {
+        bottom: 60px;
+    }
+}
+
 #chat-window {
     height: 400px;
     overflow-y: auto;
@@ -635,41 +807,227 @@ button, .container {
 }
 
 .stylish-end-call-btn {
-    position: absolute;
-    left: 50%;
-    bottom: -60px; /* Positioned below the video container */
-    transform: translateX(-50%);
-    padding: 10px 30px;
-    background: rgba(255, 255, 255, 0.2); /* Transparent effect */
-    border: 2px solid rgba(255, 0, 0, 0.8); /* Red futuristic border */
+    background-color: red;
     color: white;
+    padding: 10px 20px;
     font-size: 18px;
-    font-weight: bold;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.6);
-    cursor: pointer;
-    transition: all 0.4s ease;
-    z-index: 2;
+    border: none;
+    border-radius: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    /* Fallback for browsers that don't support backdrop-filter */
-    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent dark background */
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease-out;
 }
 
 .swipe-arrow {
     margin-left: 10px;
-    font-size: 16px;
-    transition: transform 0.4s ease;
-    color: rgba(255, 0, 0, 0.8); /* Futuristic red arrow */
+    transition: transform 0.3s ease-out;
 }
 
-.stylish-end-call-btn:hover .swipe-arrow {
-    transform: translateX(8px); /* Swipe effect on hover */
+/* Add style to visually represent the swipe */
+.swiped {
+    transform: translateX(100px); /* Moves the button to the right when swiped */
 }
 
-.stylish-end-call-btn:hover {
-    background: rgba(255, 0, 0, 0.5); /* Changes background on hover */
-    box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.8);
+/* General Sidebar Footer Styles */
+.futuristic-footer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 200px; /* Default width for larger screens */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    box-shadow: 5px 0 15px rgba(0, 255, 255, 0.3);
+    border-right: 2px solid #00FFF6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    z-index: 1;
+    transition: opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
+    opacity: 1; /* Default to visible */
+    visibility: visible; /* Default to visible */
+    animation: fadeOut 1s forwards; /* Fades out animation */
+    overflow: hidden; /* Ensures that the animation stays within the footer */
+}
+
+/* Animation for fading out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Cancel Button Styles */
+#cancel-footer {
+    position: absolute;
+    top: 10px; /* Distance from the top of the footer */
+    right: 10px; /* Distance from the right edge of the footer */
+    background: transparent;
+    border: none;
+    width: 60px; /* Width of the button */
+    height: 60px; /* Height of the button */
+    border-radius: 50%; /* Makes the button circular */
+    cursor: pointer;
+    overflow: hidden; /* Ensures the animation stays within the button */
+    z-index: 2; /* Make sure the button is above other content */
+    transition: transform 0.3s ease;
+    position: relative; /* Needed for the pseudo-element */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Glow effect */
+}
+
+/* Glowing Effect */
+#cancel-footer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%; /* Cover the button completely */
+    height: 300%; /* Cover the button completely */
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Positioned behind the button */
+    animation: glow 1.5s infinite; /* Animation for the glowing effect */
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+#cancel-footer:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Enhanced glow on hover */
+}
+
+/* Footer Logo (Top) */
+.footer-logo {
+    margin-top: 20px;
+}
+
+.footer-logo img {
+    height: 80px;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(-270deg);
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1) rotate(-90deg);
+}
+
+/* Company Name (Vertical Sideways at Bottom) */
+.company-name {
+    font-size: 0.5rem;
+    font-weight: bold;
+    color: #FF00FF;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+/* Footer Text */
+.footer-text {
+    font-size: 0.8rem;
+    color: #00FFF6;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Footer Links (Vertical Sideways) */
+.footer-link {
+    color: #00FFF6;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    text-align: left;
+    display: block;
+    white-space: nowrap;
+}
+
+.footer-link:hover {
+    color: #FF00FF;
+}
+
+/* Sidebar Hover Animation */
+.futuristic-footer:hover {
+    background: rgba(0, 0, 0, 1);
+    border-right-color: #FF00FF;
+    box-shadow: 5px 0 25px rgba(255, 0, 255, 0.7);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .futuristic-footer {
+        width: 180px;
+    }
+}
+
+@media (max-width: 992px) {
+    .futuristic-footer {
+        width: 150px;
+    }
+
+    .footer-logo img {
+        height: 60px;
+    }
+
+    .company-name {
+        font-size: 0.4rem;
+        margin-bottom: 80px;
+    }
+
+    .footer-text {
+        font-size: 0.7rem;
+    }
+
+    .footer-link {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .futuristic-footer {
+        width: 120px;
+        padding: 10px;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .company-name {
+        font-size: 0.3rem;
+        margin-bottom: 60px;
+    }
+
+    .footer-text {
+        font-size: 0.6rem;
+    }
+
+    .footer-link {
+        font-size: 0.6rem;
+    }
 }
