@@ -867,12 +867,17 @@ button, .container {
 
 .footer-logo img {
     height: 80px;
-    transition: transform 0.3s ease-in-out;
-    transform: rotate(-270deg);
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    transform: rotate(-270deg); /* Initial state */
 }
 
 .footer-logo img:hover {
-    transform: scale(1.1) rotate(-90deg);
+    transform: scale(1.1) rotate(-90deg); /* On hover: rotate and scale */
+}
+
+/* Ensure the logo rotates back to the initial state when the hover ends */
+.footer-logo img {
+    transition: transform 0.3s ease-in-out; /* Smooth rotation back */
 }
 
 /* Company Name (Above Logo) */
