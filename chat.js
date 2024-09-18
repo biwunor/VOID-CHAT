@@ -393,49 +393,33 @@ function endCall() {
     // Additional end call logic, like stopping media streams or notifications
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Delay before starting fade-out animation (e.g., 5 seconds)
-    setTimeout(() => {
-     document.querySelector('.futuristic-footer').classList.add('fade');
-    }, 20000); // 20000 milliseconds = 20 seconds
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+// Check if the footer has been canceled in localStorage
+document.addEventListener('DOMContentLoaded', function () {
     const footer = document.querySelector('.futuristic-footer');
-    const cancelButton = document.getElementById('cancel-footer'); // Add this button to your HTML
+    const cancelButton = document.getElementById('cancel-footer');
 
-    let footerVisible = false;
-
-    function showFooter() {
-        if (!localStorage.getItem('footerHidden')) {
-            footer.classList.add('fade');
-            footerVisible = true;
-            setTimeout(hideFooter, 60000); // Hide the footer after 1 minute
-        }
+    if (!localStorage.getItem('footerCanceled')) {
+        // Show the footer if it has not been canceled
+        footer.classList.add('visible');
     }
 
-    function hideFooter() {
-        footer.classList.remove('fade');
-        footerVisible = false;
-    }
-
-    function handleFooterVisibility() {
-        if (!localStorage.getItem('footerHidden')) {
-            showFooter();
-            setInterval(() => {
-                if (!footerVisible && !localStorage.getItem('footerHidden')) {
-                    showFooter();
-                }
-            }, 30000); // Check every 30 seconds
-        }
-    }
-
-    cancelButton.addEventListener('click', () => {
-        localStorage.setItem('footerHidden', 'true');
-        footer.classList.remove('fade');
+    // Cancel button click event
+    cancelButton.addEventListener('click', function () {
+        footer.classList.remove('visible');
+        localStorage.setItem('footerCanceled', 'true');
     });
-
-    // Initial delay before showing the footer
-    setTimeout(handleFooterVisibility, 30000); // Show after 30 seconds
 });
-    
+
+// When the document is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const footer = document.querySelector('.futuristic-footer');
+    const cancelButton = document.getElementById('cancel-footer');
+
+    // Show the footer when the page loads
+    footer.classList.add('visible');
+
+    // Cancel button click event
+    cancelButton.addEventListener('click', function () {
+        footer.classList.remove('visible'); // Hide the footer when user clicks cancel
+    });
+});

@@ -844,84 +844,25 @@ button, .container {
     border-right: 2px solid #00FFF6;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
+    justify-content: space-between;
     z-index: 1;
-    transition: opacity 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
-    opacity: 1; /* Default to visible */
-    visibility: visible; /* Default to visible */
-    animation: fadeOut 1s forwards; /* Fades out animation */
-    overflow: hidden; /* Ensures that the animation stays within the footer */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.5s ease, visibility 0s ease 0.5s; /* Fade in */
 }
 
-/* Animation for fading out */
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+/* Footer visible state */
+.futuristic-footer.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease; /* Fade out on cancel */
 }
 
-/* Cancel Button Styles */
-#cancel-footer {
-    position: absolute;
-    top: 10px; /* Distance from the top of the footer */
-    right: 10px; /* Distance from the right edge of the footer */
-    background: transparent;
-    border: none;
-    width: 60px; /* Width of the button */
-    height: 60px; /* Height of the button */
-    border-radius: 50%; /* Makes the button circular */
-    cursor: pointer;
-    overflow: hidden; /* Ensures the animation stays within the button */
-    z-index: 2; /* Make sure the button is above other content */
-    transition: transform 0.3s ease;
-    position: relative; /* Needed for the pseudo-element */
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Glow effect */
-}
-
-/* Glowing Effect */
-#cancel-footer::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%; /* Cover the button completely */
-    height: 300%; /* Cover the button completely */
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0) 70%);
-    transform: translate(-50%, -50%);
-    z-index: -1; /* Positioned behind the button */
-    animation: glow 1.5s infinite; /* Animation for the glowing effect */
-}
-
-/* Glowing Animation */
-@keyframes glow {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.8;
-    }
-}
-
-#cancel-footer:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Enhanced glow on hover */
-}
-
-/* Footer Logo (Top) */
+/* Footer Logo (Bottom) */
 .footer-logo {
-    margin-top: 20px;
+    align-self: center; /* Aligns the logo horizontally */
+    margin-top: auto; /* Pushes the logo to the bottom */
+    margin-bottom: 20px; /* Adds some spacing from the bottom */
 }
 
 .footer-logo img {
@@ -934,9 +875,9 @@ button, .container {
     transform: scale(1.1) rotate(-90deg);
 }
 
-/* Company Name (Vertical Sideways at Bottom) */
+/* Company Name (Above Logo) */
 .company-name {
-    font-size: 0.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #FF00FF;
     writing-mode: vertical-rl;
@@ -971,63 +912,61 @@ button, .container {
     color: #FF00FF;
 }
 
+/* Cancel Button Styles */
+#cancel-footer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Glow effect */
+}
+
+/* Glowing Effect */
+#cancel-footer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: glow 1.5s infinite;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+#cancel-footer:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+}
+
 /* Sidebar Hover Animation */
 .futuristic-footer:hover {
     background: rgba(0, 0, 0, 1);
     border-right-color: #FF00FF;
     box-shadow: 5px 0 25px rgba(255, 0, 255, 0.7);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1200px) {
-    .futuristic-footer {
-        width: 180px;
-    }
-}
-
-@media (max-width: 992px) {
-    .futuristic-footer {
-        width: 150px;
-    }
-
-    .footer-logo img {
-        height: 60px;
-    }
-
-    .company-name {
-        font-size: 0.4rem;
-        margin-bottom: 80px;
-    }
-
-    .footer-text {
-        font-size: 0.7rem;
-    }
-
-    .footer-link {
-        font-size: 0.7rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .futuristic-footer {
-        width: 120px;
-        padding: 10px;
-    }
-
-    .footer-logo img {
-        height: 50px;
-    }
-
-    .company-name {
-        font-size: 0.3rem;
-        margin-bottom: 60px;
-    }
-
-    .footer-text {
-        font-size: 0.6rem;
-    }
-
-    .footer-link {
-        font-size: 0.6rem;
-    }
 }
