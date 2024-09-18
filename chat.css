@@ -862,7 +862,7 @@ button, .container {
 .footer-logo {
     align-self: center; /* Aligns the logo horizontally */
     margin-top: auto; /* Pushes the logo to the bottom */
-    margin-bottom: 20px; /* Adds some spacing from the bottom */
+    margin-bottom: 0px; /* Adds some spacing from the bottom */
 }
 
 /* Default for all devices */
@@ -948,11 +948,23 @@ button, .container {
     cursor: pointer;
     z-index: 2;
     transition: transform 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8); /* Glow effect */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Blood red glow effect */
+}
+
+/* Glowing X Icon */
+#cancel-footer::before {
+    content: '✖'; /* Blood red X */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: rgba(255, 0, 0, 0.9); /* Blood red color */
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.8); /* Glowing X */
 }
 
 /* Glowing Effect */
-#cancel-footer::before {
+#cancel-footer::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -960,7 +972,7 @@ button, .container {
     width: 300%;
     height: 300%;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, rgba(0, 255, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, rgba(255, 0, 0, 0) 70%);
     transform: translate(-50%, -50%);
     z-index: -1;
     animation: glow 1.5s infinite;
@@ -984,7 +996,7 @@ button, .container {
 
 #cancel-footer:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Brighter blood red glow on hover */
 }
 
 /* Sidebar Hover Animation */
