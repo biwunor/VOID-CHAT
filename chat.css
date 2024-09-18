@@ -890,11 +890,11 @@ button, .container {
 /* For mobile phones (smaller screens) */
 @media screen and (max-width: 767px) {
     .footer-logo img { 
-        transform: rotate(-180deg); /* Different rotation for mobile phones */
+        transform: rotate(-270deg); /* Different rotation for mobile phones */
     }
 
     .footer-logo img:hover {
-        transform: scale(1.1) rotate(0deg); /* Rotate differently on hover for mobile */
+        transform: scale(1.1) rotate(90deg); /* Rotate differently on hover for mobile */
     }
 }
 
