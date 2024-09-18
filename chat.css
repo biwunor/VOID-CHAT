@@ -865,19 +865,37 @@ button, .container {
     margin-bottom: 20px; /* Adds some spacing from the bottom */
 }
 
-.footer-logo img {
+/* Default for all devices */
+.footer-logo img { 
     height: 80px;
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    transform: rotate(-270deg); /* Initial state */
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(-270deg); /* Initial rotation */
 }
 
 .footer-logo img:hover {
-    transform: scale(1.1) rotate(-90deg); /* On hover: rotate and scale */
+    transform: scale(1.1) rotate(-90deg); /* Hover rotation */
 }
 
-/* Ensure the logo rotates back to the initial state when the hover ends */
-.footer-logo img {
-    transition: transform 0.3s ease-in-out; /* Smooth rotation back */
+/* For laptops and desktops (larger screens) */
+@media screen and (min-width: 1024px) {
+    .footer-logo img { 
+        transform: rotate(-270deg); /* Rotate to this angle on larger screens */
+    }
+
+    .footer-logo img:hover {
+        transform: scale(1.1) rotate(-90deg); /* Rotate on hover */
+    }
+}
+
+/* For mobile phones (smaller screens) */
+@media screen and (max-width: 767px) {
+    .footer-logo img { 
+        transform: rotate(-180deg); /* Different rotation for mobile phones */
+    }
+
+    .footer-logo img:hover {
+        transform: scale(1.1) rotate(0deg); /* Rotate differently on hover for mobile */
+    }
 }
 
 /* Company Name (Above Logo) */
